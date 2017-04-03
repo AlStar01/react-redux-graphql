@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Row, Col } from 'react-bootstrap';
 
-class Employees extends Component {
+class EmployeeList extends Component {
     render() {
         return (
             <Row>
@@ -14,4 +14,4 @@ class Employees extends Component {
     }
 }
 
-export default Employees;
+export default EmployeeList;
