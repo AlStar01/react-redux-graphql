@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as employeeActions from '../../../actions/employee/employee-actions';
 
@@ -26,7 +27,7 @@ class EmployeeList extends Component {
 
     handleClick(e) {
         e.preventDefault();
-        this.props.addEmployee(this.state.employee);
+        this.props.actions.addEmployee(this.state.employee);
     }
 
     render() {
@@ -64,7 +65,7 @@ class EmployeeList extends Component {
 
 EmployeeList.propTypes = {
     employees: PropTypes.array.isRequired,
-    addEmployee: PropTypes.func.isRequired
+    actions: PropTypes.object.isRequired
 }
 
 function mapStateToProps(state, ownProps) {
@@ -78,7 +79,7 @@ function mapStateToProps(state, ownProps) {
 // otherwise connect() is adding dispatch property to component props
 function mapDispatchToProps(dispatch) {
     return {
-        addEmployee: employee => dispatch(employeeActions.addEmployee(employee))
+        actions: bindActionCreators(employeeActions, dispatch)
     };
 }
 
