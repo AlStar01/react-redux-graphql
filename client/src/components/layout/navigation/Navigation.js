@@ -12,12 +12,12 @@ const Navigation = () => {
                     <IndexLink to="/">App</IndexLink>
                 </Navbar.Brand>
             </Navbar.Header>
-            <Nav>
-                <LinkContainer to="/">
-                    <NavItem eventKey={1}>Home</NavItem>
-                </LinkContainer>
+            <Nav pullRight>
                 <LinkContainer to="/about">
-                    <NavItem eventKey={2}>About</NavItem>
+                    <NavItem eventKey={1}>About</NavItem>
+                </LinkContainer>
+                <LinkContainer to="/employees">
+                    <NavItem eventKey={2}>Employees</NavItem>
                 </LinkContainer>
             </Nav>
         </Navbar>
