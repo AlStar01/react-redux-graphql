@@ -63,8 +63,8 @@ class EmployeeList extends Component {
 }
 
 EmployeeList.propTypes = {
-    //dispatch: PropTypes.func.isRequired,
-    employees: PropTypes.array.isRequired
+    employees: PropTypes.array.isRequired,
+    addEmployee: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state, ownProps) {
@@ -75,6 +75,7 @@ function mapStateToProps(state, ownProps) {
     }
 }
 
+// otherwise connect() is adding dispatch property to component props
 function mapDispatchToProps(dispatch) {
     return {
         addEmployee: employee => dispatch(employeeActions.addEmployee(employee))
