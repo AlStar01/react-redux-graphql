@@ -26,7 +26,7 @@ class EmployeeList extends Component {
 
     handleClick(e) {
         e.preventDefault();
-        this.props.dispatch(employeeActions.addEmployee(this.state.employee));
+        this.props.addEmployee(this.state.employee);
     }
 
     render() {
@@ -63,15 +63,22 @@ class EmployeeList extends Component {
 }
 
 EmployeeList.propTypes = {
-    dispatch: PropTypes.func.isRequired,
+    //dispatch: PropTypes.func.isRequired,
     employees: PropTypes.array.isRequired
 }
 
-function mapStatetoProps(state, ownProps) {
+function mapStateToProps(state, ownProps) {
+    console.log(ownProps);
+
     return {
-        // "employees" matches up with property name in root reducer
         employees: state.employees
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        addEmployee: employee => dispatch(employeeActions.addEmployee(employee))
     };
 }
 
-export default connect(mapStatetoProps)(EmployeeList);
+export default connect(mapStateToProps, mapDispatchToProps)(EmployeeList);
