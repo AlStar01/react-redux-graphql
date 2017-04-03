@@ -6,20 +6,26 @@ import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap';
 
 const Navigation = () => {
     return (
-        <Navbar>
+        <Navbar collapseOnSelect>
             <Navbar.Header>
                 <Navbar.Brand>
                     <IndexLink to="/">App</IndexLink>
                 </Navbar.Brand>
+                <Navbar.Toggle />
             </Navbar.Header>
-            <Nav pullRight>
-                <LinkContainer to="/about">
-                    <NavItem eventKey={1}>About</NavItem>
-                </LinkContainer>
-                <LinkContainer to="/employees">
-                    <NavItem eventKey={2}>Employees</NavItem>
-                </LinkContainer>
-            </Nav>
+            <Navbar.Collapse>
+                <Nav pullRight>
+                    <IndexLinkContainer to="/">
+                        <NavItem eventKey={1}>Home</NavItem>
+                    </IndexLinkContainer>
+                    <LinkContainer to="/about">
+                        <NavItem eventKey={2}>About</NavItem>
+                    </LinkContainer>
+                    <LinkContainer to="/employees">
+                        <NavItem eventKey={3}>Employees</NavItem>
+                    </LinkContainer>
+                </Nav>
+            </Navbar.Collapse>
         </Navbar>
     );
 }

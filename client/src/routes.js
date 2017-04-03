@@ -4,7 +4,7 @@ import { Route, IndexRoute } from 'react-router';
 import App from './components/App';
 import Home from './components/home/Home';
 import About from './components/about/About';
-import EmployeeList from './components/employees/Employees';
+import EmployeeList from './components/employees/employee-list/EmployeeList';
 
 export default (
     <Route path="/" component={App}>

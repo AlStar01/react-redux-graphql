@@ -7,7 +7,7 @@ class EmployeeList extends Component {
         return (
             <Row>
                 <Col sm={12}>
-                    <h1>Employees</h1>
+                    <h1>Employee List</h1>
                 </Col>
             </Row>
         );
