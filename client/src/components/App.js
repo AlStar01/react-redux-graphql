@@ -1,14 +1,21 @@
 import React, { Component, PropTypes } from 'react';
+
 import './App.css';
+
+import Navigation from './layout/navigation/Navigation';
 
 import { Grid } from 'react-bootstrap';
 
 class App extends Component {
   render() {
     return (
-      <Grid>
-        {this.props.children}
-      </Grid>
+      <div>
+        <Navigation />
+
+        <Grid>
+          {this.props.children}
+        </Grid>
+      </div>
     );
   }
 }
