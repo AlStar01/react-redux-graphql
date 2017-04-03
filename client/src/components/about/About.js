@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 import { Row, Col } from 'react-bootstrap';
 
-export default class About extends Component {
+class About extends Component {
     render() {
         return (
             <Row>
@@ -19,3 +19,5 @@ export default class About extends Component {
         );
     }
 }
+
+export default About;
