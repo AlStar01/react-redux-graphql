@@ -1,13 +1,4 @@
-let path = require('path');
+let config = require('./knexfile');
+let db = require('knex')(config.development);
 
-let contactsPath = path.resolve(__dirname, 'contacts.sqlite');
-
-var db = require('knex')({
-  client: 'sqlite3',
-  connection: {
-    filename: contactsPath
-  },
-  useNullAsDefault: true
-});
-
-modeule.exports = db;
+module.exports = db;

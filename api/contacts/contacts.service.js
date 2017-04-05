@@ -4,12 +4,12 @@ class ContactsService {
     constructor() {
         this.db = db;
 
-        this.getContacts = this.getEmployees.bind(this);
+        this.getContacts = this.getContacts.bind(this);
     }
 
-    getEmployees() {
-        return db.select().from('contact');
+    getContacts() {
+        return db.select().from('contact').orderBy('name');
     }
 }
 
-module.exports = new EmployeesService();
+module.exports = new ContactsService();
