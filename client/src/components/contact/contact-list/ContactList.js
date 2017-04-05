@@ -1,16 +1,16 @@
 import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as employeeActions from '../../../actions/employee/employee-actions';
+import * as contactActions from '../../../actions/contact/contact-actions';
 
 import { Row, Col, Button } from 'react-bootstrap';
 
-class EmployeeList extends Component {
+class ContactList extends Component {
     constructor(props, context) {
         super(props, context);
 
         this.state = {
-            employee: {
+            contact: {
                 name: ''
             }
         };
@@ -20,14 +20,14 @@ class EmployeeList extends Component {
     }
 
     handleNameChange(e) {
-        const employee = this.state.employee;
-        employee.name = e.target.value;
-        this.setState({ employee: employee });
+        const contact = this.state.contact;
+        contact.name = e.target.value;
+        this.setState({ contact: contact });
     }
 
     handleClick(e) {
         e.preventDefault();
-        this.props.actions.addEmployee(this.state.employee);
+        this.props.actions.addContact(this.state.contact);
     }
 
     render() {
@@ -35,16 +35,16 @@ class EmployeeList extends Component {
             <div>
                 <Row>
                     <Col sm={12}>
-                        <h1>Employees</h1>
-                        {this.props.employees.map((employee, index) => {
-                            return (<div key={index}>{employee.name}</div>);
+                        <h1>Contacts</h1>
+                        {this.props.contacts.map((contact, index) => {
+                            return (<div key={index}>{contact.name}</div>);
                         })}
                     </Col>
                 </Row>
                 <br />
                 <Row>
                     <Col sm={12}>
-                        <h2>Add Employee</h2>
+                        <h2>Add Contact</h2>
                         <form>
                             <div className="form-group">
                                 <label htmlFor="name">Name</label>
@@ -52,7 +52,7 @@ class EmployeeList extends Component {
                                     name="name" 
                                     className="form-control" 
                                     onChange={this.handleNameChange}
-                                    value={this.state.employee.name} />
+                                    value={this.state.contact.name} />
                             </div>
                             <Button bsStyle="primary" type="submit" onClick={this.handleClick}>Save</Button>
                         </form>
@@ -63,8 +63,8 @@ class EmployeeList extends Component {
     }
 }
 
-EmployeeList.propTypes = {
-    employees: PropTypes.array.isRequired,
+ContactList.propTypes = {
+    contacts: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired
 }
 
@@ -72,15 +72,15 @@ function mapStateToProps(state, ownProps) {
     console.log(ownProps);
 
     return {
-        employees: state.employees
+        contacts: state.contacts
     }
 }
 
 // otherwise connect() is adding dispatch property to component props
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(employeeActions, dispatch)
+        actions: bindActionCreators(contactActions, dispatch)
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(EmployeeList);
+export default connect(mapStateToProps, mapDispatchToProps)(ContactList);

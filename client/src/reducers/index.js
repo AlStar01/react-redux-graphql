@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import employees from './employee/employee-reducer';
+import contacts from './contact/contact-reducer';
 
 const rootReducer = combineReducers({
-    employees
+    contacts
 });
 
 export default rootReducer;
