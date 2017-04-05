@@ -5,10 +5,15 @@ class ContactsService {
         this.db = db;
 
         this.getContacts = this.getContacts.bind(this);
+        this.getContact = this.getContact.bind(this);
     }
 
     getContacts() {
-        return db.select().from('contact').orderBy('name');
+        return this.db.select().from('contact').orderBy('name');
+    }
+
+    getContact(contactId) {
+        return this.db.select().from('contact').where('id', contactId).first();
     }
 }
 

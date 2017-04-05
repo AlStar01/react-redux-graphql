@@ -9,4 +9,10 @@ router.get('/', (req, res) => {
         .catch(error => res.status(500).send(error));
 });
 
+router.get('/:contactId', (req, res) => {
+    contactService.getContact(req.params.contactId)
+        .then(contact => res.status(200).send(contact))
+        .catch(error => res.status(500).send(error));
+});
+
 module.exports = router;
