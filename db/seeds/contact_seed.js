@@ -3,11 +3,11 @@ let faker = require('faker');
 exports.seed = function (knex, Promise) {
   let contacts = [];
 
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 50; i++) {
     let fakerContact = faker.helpers.contextualCard();
 
     let contact = {
-      name: fakerContact.name,
+      name: `${faker.name.firstName()} ${faker.name.lastName()}`,
       email: fakerContact.email,
       phone: fakerContact.phone,
       street: faker.address.streetAddress(),
