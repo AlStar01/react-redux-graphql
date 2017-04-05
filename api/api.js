@@ -1,8 +1,8 @@
 let express = require('express');
 let app = express();
 
-let employees = require('./employees/employees');
+let contacts = require('./contacts/contacts');
 
-app.use('/api/employees', employees);
+app.use('/api/contacts', contacts);
 
 module.exports = app;

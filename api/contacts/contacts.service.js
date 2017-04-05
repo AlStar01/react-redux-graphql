@@ -1,14 +1,14 @@
 let db = require('../../db/db');
 
-class EmployeesService {
+class ContactsService {
     constructor() {
         this.db = db;
 
-        this.getEmployees = this.getEmployees.bind(this);
+        this.getContacts = this.getEmployees.bind(this);
     }
 
     getEmployees() {
-        return db.select().from('employee');
+        return db.select().from('contact');
     }
 }
 
