@@ -7,15 +7,14 @@ export function addContact(contact) {
 }
 
 export function loadContactsSuccess(contacts) {
-    return { type: types.LOAD_CONTACTS_SUCCESS, contacts};
+    return { type: types.LOAD_CONTACTS_SUCCESS, contacts };
 }
 
-export function loadContacts() {
+export function loadContacts(dispatch) {
     return function(dispatch) {
-        return ContactService
-            .getContacts()
+        return ContactService.getContacts()
             .then(response => response.json())
             .then(contacts => dispatch(loadContactsSuccess(contacts)))
             .catch(err => console.error(err));
-    };
+    }
 }
