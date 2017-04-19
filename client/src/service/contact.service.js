@@ -1,7 +1,7 @@
 class ContactService {
     static getContacts() {
-        return fetch('api/contacts');
+        return fetch('/api/contacts');
     }
 }
 
-export default ContactService;
+export default ContactService;7

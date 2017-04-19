@@ -1,10 +1,12 @@
 import React, { PropTypes } from 'react';
 
+import { Link } from 'react-router';
+
 const ContactListRow = ({ contact }) => {
     return (
         <tr>
             <td><img src={contact.avatar} alt={contact.name} height="50px" width="50px" /></td>
-            <td>{contact.name}</td>
+            <td><Link to={'/contacts/' + contact.id}>{contact.name}</Link></td>
             <td>{contact.email}</td>
             <td>{contact.phone}</td>
             <td>{contact.company}</td>
@@ -14,7 +16,7 @@ const ContactListRow = ({ contact }) => {
 };
 
 ContactListRow.propTypes = {
-    contact: PropTypes.node.isRequired
+    contact: PropTypes.object.isRequired
 };
 
 export default ContactListRow;

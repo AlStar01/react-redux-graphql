@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
+import * as contactActions from '../../../actions/contact/contact-actions';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -9,11 +11,15 @@ class ContactManagePage extends Component {
     }
 
     render() {
-        return (<div></div>);
+        return (
+            <div>foo</div>
+        );
     }
 } 
 
-ContactManagePage.propTypes = { };
+ContactManagePage.propTypes = {
+    actions: PropTypes.object.isRequired
+};
 
 function mapStateToProps(state, ownProps) {
     console.debug(ownProps);
@@ -25,7 +31,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(someActions, dispatch)
+        actions: bindActionCreators(contactActions, dispatch)
     };
 }
 
