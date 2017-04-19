@@ -1,1 +1,3 @@
-export const ADD_CONTACT = "ADD_CONTACT";
+export const ADD_CONTACT = 'ADD_CONTACT';
+
+export const LOAD_CONTACTS_SUCCESS = 'LOAD_CONTACTS_SUCCESS';

@@ -1,6 +1,6 @@
 class ContactService {
     static getContacts() {
-        return fetch('api/contacts').then(contacts => console.debug(contacts));
+        return fetch('api/contacts');
     }
 }
 
