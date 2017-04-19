@@ -8,7 +8,7 @@ import ContactList from './contact-list/ContactList';
 
 import { Row, Col } from 'react-bootstrap';
 
-class ContactPage extends Component {
+class ContactsPage extends Component {
     constructor(props, context) {
         super(props, context);
 
@@ -52,7 +52,7 @@ class ContactPage extends Component {
     }
 }
 
-ContactPage.propTypes = {
+ContactsPage.propTypes = {
     contacts: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired
 }
@@ -72,4 +72,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContactPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ContactsPage);
