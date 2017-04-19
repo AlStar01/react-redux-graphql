@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as contactActions from '../../actions/contact/contact-actions';
 
+import ContactFilter from './contact-filter/ContactFilter';
 import ContactList from './contact-list/ContactList';
 
 import { Row, Col } from 'react-bootstrap';
@@ -10,6 +11,20 @@ import { Row, Col } from 'react-bootstrap';
 class ContactPage extends Component {
     constructor(props, context) {
         super(props, context);
+
+        this.state = {
+            filterText: ''
+        };
+
+        this.onFilterTextInput = this.onFilterTextInput.bind(this);
+    }
+
+    onFilterTextInput(filterText) {
+        console.debug(filterText);
+        
+        this.setState({
+            filterText: filterText
+        });
     }
 
     render() {
@@ -20,6 +35,14 @@ class ContactPage extends Component {
                 <Row>
                     <Col sm={12}>
                         <h1>Contacts</h1>
+                    </Col>
+                </Row>
+
+                <br />
+
+                <Row>
+                    <Col sm={12}>
+                        <ContactFilter filterText={this.state.filterText} onFilterTextInput={this.onFilterTextInput} />
                         <br/>
                         <ContactList contacts={contacts} />
                     </Col>
