@@ -1,53 +1,31 @@
-import React, { Component, PropTypes } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import * as contactActions from '../../../actions/contact/contact-actions';
+import React, { PropTypes } from 'react';
 
-import { Row, Col } from 'react-bootstrap';
+import ContactListRow from './ContactListRow';
 
-class ContactList extends Component {
-    constructor(props, context) {
-        super(props, context);
-    }
+import { Table } from 'react-bootstrap';
 
-    componentDidMount() {
-        fetch('api/contacts').then(response => response.json()).then(contacts => console.debug(contacts));
-    }
-
-    render() {
-        return (
-            <div>
-                <Row>
-                    <Col sm={12}>
-                        <h1>Contacts</h1>
-                        {this.props.contacts.map((contact, index) => {
-                            return (<div key={index}>{contact.name}</div>);
-                        })}
-                    </Col>
-                </Row>
-            </div>
-        );
-    }
-}
+const ContactList = ({ contacts }) => {
+    return (
+        <Table striped bordered hover>
+            <thead>
+                <tr>
+                    <th>Avatar</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Company</th>
+                    <th>Birthday</th>
+                </tr>
+            </thead>
+            <tbody>
+                {contacts.map(contact => <ContactListRow key={contact.id} contact={contact} />)}
+            </tbody>    
+        </Table>
+    );
+};
 
 ContactList.propTypes = {
-    contacts: PropTypes.array.isRequired,
-    actions: PropTypes.object.isRequired
+    contacts: PropTypes.array.isRequired
 }
 
-function mapStateToProps(state, ownProps) {
-    console.debug(ownProps);
-
-    return {
-        contacts: state.contacts
-    }
-}
-
-// otherwise connect() is adding dispatch property to component props
-function mapDispatchToProps(dispatch) {
-    return {
-        actions: bindActionCreators(contactActions, dispatch)
-    };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
+export default ContactList;
