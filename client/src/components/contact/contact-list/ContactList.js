@@ -20,7 +20,7 @@ class ContactList extends Component {
     }
 
     componentDidMount() {
-        fetch('api/contacts').then(response => console.debug(response.json));
+        fetch('api/contacts').then(response => console.debug(response.json()));
     }
 
     handleNameChange(e) {
