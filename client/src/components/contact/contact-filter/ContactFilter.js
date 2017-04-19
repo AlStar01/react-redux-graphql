@@ -18,7 +18,7 @@ const ContactFilter = ({ filterText, onFilterTextInput }) => {
     );
 };
 
-ContactFilter.PropTypes = {
+ContactFilter.propTypes = {
     filterText: PropTypes.string.isRequired,
     onFilterTextInput: PropTypes.func.isRequired
 };

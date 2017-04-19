@@ -13,7 +13,7 @@ const ContactListRow = ({ contact }) => {
     );
 };
 
-ContactListRow.PropTypes = {
+ContactListRow.propTypes = {
     contact: PropTypes.node.isRequired
 };
 
