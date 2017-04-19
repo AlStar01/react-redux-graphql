@@ -17,5 +17,5 @@ export function loadContacts() {
             .then(response => response.json())
             .then(contacts => dispatch(loadContactsSuccess(contacts)))
             .catch(err => console.error(err));
-    }
+    };
 }
