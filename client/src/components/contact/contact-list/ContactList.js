@@ -19,6 +19,10 @@ class ContactList extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
+    componentDidMount() {
+        fetch('api/contacts').then(response => console.debug(response.json));
+    }
+
     handleNameChange(e) {
         const contact = this.state.contact;
         contact.name = e.target.value;
@@ -69,7 +73,7 @@ ContactList.propTypes = {
 }
 
 function mapStateToProps(state, ownProps) {
-    console.log(ownProps);
+    console.debug(ownProps);
 
     return {
         contacts: state.contacts
