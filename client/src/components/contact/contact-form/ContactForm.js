@@ -2,11 +2,12 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import { FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap';
+import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 
 const ContactForm = ({ contact, handleChange, handleSave }) => {
     return (
         <form>
+            <h1>Manage Contact</h1>
             <FormGroup controlId="name">
                 <ControlLabel>Name</ControlLabel>
                 <FormControl 
@@ -123,7 +124,7 @@ const ContactForm = ({ contact, handleChange, handleSave }) => {
             </FormGroup>
 
             <FormGroup controlId="website">
-                <ControlLabel>Name</ControlLabel>
+                <ControlLabel>Website</ControlLabel>
                 <FormControl 
                     name="website"
                     type="url"
@@ -150,7 +151,7 @@ const ContactForm = ({ contact, handleChange, handleSave }) => {
             </FormGroup>
 
             <FormGroup controlId="avatar">
-                <ControlLabel>Name</ControlLabel>
+                <ControlLabel>Avatar</ControlLabel>
                 <FormControl 
                     name="avatar"
                     type="url"
@@ -159,7 +160,7 @@ const ContactForm = ({ contact, handleChange, handleSave }) => {
             </FormGroup>
 
             <FormGroup controlId="birthday">
-                <ControlLabel>Name</ControlLabel>
+                <ControlLabel>Birthday</ControlLabel>
                 <FormControl 
                     name="birthday"
                     type="text"
