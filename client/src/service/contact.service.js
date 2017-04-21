@@ -4,4 +4,4 @@ class ContactService {
     }
 }
 
-export default ContactService;7
+export default ContactService;

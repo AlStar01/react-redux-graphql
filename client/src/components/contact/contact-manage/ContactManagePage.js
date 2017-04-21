@@ -14,15 +14,20 @@ class ContactManagePage extends Component {
         super(props, context);
 
         this.state = {
-            contact: Object.assign({}, this.props.contact)
+            contact: Object.assign({}, props.contact)
         };
 
         this.onFormInputChange = this.onFormInputChange.bind(this);
         this.onFormSubmit = this.onFormSubmit.bind(this);
     }
 
-    onFormInputChange() {
+    onFormInputChange(e) {
+        let contact = this.state.contact;
+        
+        const field = e.target.name;
+        contact[field] = e.target.value;
 
+        this.setState({ contact: contact });
     }
 
     onFormSubmit() {
@@ -32,7 +37,10 @@ class ContactManagePage extends Component {
     render() {
         return (
             <div>
-                <ContactForm contact={this.state.contact} />
+                <ContactForm 
+                    contact={this.state.contact}
+                    handleChange={this.onFormInputChange}
+                    handleSubmit={this.onFormSubmit} />
             </div>
         );
     }
@@ -47,20 +55,20 @@ function mapStateToProps(state, ownProps) {
     console.debug(ownProps);
 
     let contact = {
-        id: null, 
+        id: undefined, 
         name: '',
         email: '',
         phone: '',
         street: '',
         city: '',
-        state: '',
+        state: 'select',
         zip: '',
         website: '',
         company: '',
         title: '',
         avatar: '',
         birthday: ''
-    }
+    };
 
     return {
         contact: contact

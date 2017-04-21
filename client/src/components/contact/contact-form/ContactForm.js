@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 
-const ContactForm = ({ contact, handleChange, handleSave }) => {
+const ContactForm = ({ contact, handleChange, handleSubmit }) => {
     return (
         <form>
             <h1>Manage Contact</h1>
@@ -58,7 +58,9 @@ const ContactForm = ({ contact, handleChange, handleSave }) => {
                 <FormControl 
                     componentClass="select" 
                     placeholder="select"
-                    name="state">
+                    name="state"
+                    value={contact.state}
+                    onChange={handleChange}>
                     <option value="select">Select state...</option>
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
@@ -172,7 +174,7 @@ const ContactForm = ({ contact, handleChange, handleSave }) => {
                 type="submit" 
                 bsStyle="primary" 
                 className="pull-right"
-                onClick={handleSave}>
+                onClick={handleSubmit}>
                 Submit
             </Button>
         </form>
@@ -182,7 +184,7 @@ const ContactForm = ({ contact, handleChange, handleSave }) => {
 ContactForm.propTypes = {
     contact: PropTypes.object.isRequired,
     handleChange: PropTypes.func.isRequired,
-    handleSave: PropTypes.func.isRequired
+    handleSubmit: PropTypes.func.isRequired
 };
 
 export default ContactForm;
