@@ -15,6 +15,31 @@ class ContactsService {
     getContact(contactId) {
         return this.db.select().from('contact').where('id', contactId).first();
     }
+
+    addContact(contact) {
+        const columns = [
+            'id',
+            'name',
+            'email',
+            'phone',
+            'street',
+            'city',
+            'state',
+            'zip',
+            'website',
+            'company',
+            'title',
+            'avatar',
+            'birthday',
+            'created_on',
+            'modified_on'
+        ]
+        
+        return this.db
+            .returning(columns)
+            .insert(contact)
+            .into('contact');
+    }
 }
 
 module.exports = new ContactsService();

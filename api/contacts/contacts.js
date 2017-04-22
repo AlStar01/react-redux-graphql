@@ -15,4 +15,10 @@ router.get('/:contactId', (req, res) => {
         .catch(error => res.status(500).send(error));
 });
 
+router.post('/', (req, res) => {
+    contactService.addContact(req.body)
+        .then(contact => res.status(200).send(contact))
+        .catch(error => res.status(500).send(error));
+});
+
 module.exports = router;

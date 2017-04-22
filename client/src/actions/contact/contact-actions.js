@@ -2,10 +2,6 @@ import * as types from './contact-action-types';
 
 import ContactService from '../../service/contact.service';
 
-export function addContact(contact) {
-    return { type: types.ADD_CONTACT, contact };
-}
-
 export function loadContactsSuccess(contacts) {
     return { type: types.LOAD_CONTACTS_SUCCESS, contacts };
 }
