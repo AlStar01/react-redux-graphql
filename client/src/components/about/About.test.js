@@ -14,3 +14,12 @@ it('renders about heading', () => {
 
     expect(wrapper).toContainReact(heading);
 });
+
+it('renders list of technologies', () => {
+    const wrapper = shallow(<About />);
+    const ul = wrapper.find('ul');
+
+    const technologies = ['React', 'Bootstrap', 'Redux', 'GraphQL'];
+
+    technologies.forEach((technology) => expect(ul).toIncludeText(technology));
+});

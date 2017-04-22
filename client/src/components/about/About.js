@@ -13,7 +13,13 @@ class About extends Component {
 
                     <br/>
 
-                    <Link to="about" className="btn btn-primary">Learn more</Link>
+                    <h2>Technologies</h2>
+                    <ul>
+                        <li>React</li>
+                        <li>Redux</li>
+                        <li>GraphQL</li>
+                        <li>Bootstrap</li>
+                    </ul>
                 </Col>
             </Row>
         );
