@@ -8,9 +8,9 @@ it('renders without crashing', () => {
     const wrapper = shallow(<Home />);
 });
 
-it('renders welcome message', () => {
+it('renders welcome heading', () => {
     const wrapper = shallow(<Home />);
-    const message = <h1>React Redux GraphQL</h1>;
+    const heading = <h1>React Redux GraphQL</h1>;
 
-    expect(wrapper).toContainReact(message);
+    expect(wrapper).toContainReact(heading);
 });
