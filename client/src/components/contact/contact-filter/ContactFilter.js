@@ -12,7 +12,7 @@ const ContactFilter = ({ filterText, onFilterTextInput }) => {
     return (
         <Form inline>
             <FormGroup controlId="search">
-                <ControlLabel>Search</ControlLabel>
+                <ControlLabel srOnly>Search</ControlLabel>
                 {' '}
                 <FormControl type="text" placeholder="Search..." value={filterText} onChange={handleFilterTextChange} />
             </FormGroup>
