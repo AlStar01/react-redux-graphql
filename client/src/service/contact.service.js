@@ -9,10 +9,19 @@ class ContactService {
     
     static saveContact(contact) {
         if(contact.id) {
-            return fetch('/api/contacts', { method: 'POST', body: contact });
+            return fetch(`/api/contacts/${contact.id}`, { method: 'PUT', body: contact });
         }
         else {
-            return fetch(`/api/contacts/${contact.id}`, { method: 'PUT', body: contact });
+            return fetch('/api/contacts', 
+                { 
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    method: 'POST', 
+                    body: JSON.stringify(contact) 
+                }
+            );
         }
     }
 }

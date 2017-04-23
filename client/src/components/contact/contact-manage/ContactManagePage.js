@@ -30,8 +30,9 @@ class ContactManagePage extends Component {
         this.setState({ contact: contact });
     }
 
-    onFormSubmit() {
-
+    onFormSubmit(e) {
+        e.preventDefault();
+        this.props.actions.saveContact(this.state.contact);
     }
 
     render() {

@@ -13,5 +13,6 @@ export default (
         <Route path="about" component={About} />
         <Route path="contacts" component={ContactsPage} />
         <Route path="contacts/:id" component={ContactManagePage} />
+        <Route path="add" component={ContactManagePage} />
     </Route>
 );

@@ -6,7 +6,7 @@ import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 
 const ContactForm = ({ contact, handleChange, handleSubmit }) => {
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <h1>Manage Contact</h1>
             <FormGroup controlId="name">
                 <ControlLabel>Name</ControlLabel>

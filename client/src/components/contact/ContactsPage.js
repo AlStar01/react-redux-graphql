@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { browserHistory } from 'react-router';
+
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as contactActions from '../../actions/contact/contact-actions';
@@ -8,7 +10,7 @@ import * as contactActions from '../../actions/contact/contact-actions';
 import ContactFilter from './contact-filter/ContactFilter';
 import ContactList from './contact-list/ContactList';
 
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 
 class ContactsPage extends Component {
     constructor(props, context) {
@@ -19,6 +21,7 @@ class ContactsPage extends Component {
         };
 
         this.onFilterTextInput = this.onFilterTextInput.bind(this);
+        this.goToAddContactPage = this.goToAddContactPage.bind(this);
     }
 
     onFilterTextInput(filterText) {
@@ -27,6 +30,10 @@ class ContactsPage extends Component {
         this.setState({
             filterText: filterText
         });
+    }
+
+    goToAddContactPage() {
+        browserHistory.push('/add');
     }
 
     render() {
@@ -40,6 +47,11 @@ class ContactsPage extends Component {
                     </Col>
                 </Row>
 
+                <br />
+
+                <Button type="button" bsStyle="primary" onClick={this.goToAddContactPage}>Add Contact</Button>
+
+                <br />
                 <br />
 
                 <Row>

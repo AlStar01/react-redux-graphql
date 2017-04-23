@@ -17,28 +17,12 @@ class ContactsService {
     }
 
     addContact(contact) {
-        const columns = [
-            'id',
-            'name',
-            'email',
-            'phone',
-            'street',
-            'city',
-            'state',
-            'zip',
-            'website',
-            'company',
-            'title',
-            'avatar',
-            'birthday',
-            'created_on',
-            'modified_on'
-        ]
         
         return this.db
-            .returning(columns)
-            .insert(contact)
-            .into('contact');
+            .returning(['id']).insert(contact).into('contact')
+                .then((contactId) => {
+                    return this.db.select().from('contact').where('id', contactId[0]).first();
+                });
     }
 }
 
