@@ -53,7 +53,7 @@ class ContactManagePage extends Component {
             company: fakerContact.company.name,
             title: faker.name.jobTitle(),
             avatar: fakerContact.avatar,
-            birthday: faker.date.between('1950-01-01', '2000-01-01').
+            birthday: faker.date.between('1950-01-01', '2000-01-01')
         };
         
         this.setState({

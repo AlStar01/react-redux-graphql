@@ -33,14 +33,16 @@ class ContactsPage extends Component {
         });
     }
 
-    onFilterTextInput(filterText) {
+    onFilterTextInput(e) {
+        const filterText = e.target.value.toLowerCase();
+        
         const props = ['name', 'email', 'phone', 'company', 'title'];
         
         const filteredContacts = this.props.contacts.filter(contact => {
             let match = false;
 
             for(let prop of props) {
-                if(contact[prop].toLowerCase().indexOf(filterText.toLowerCase()) > -1) {
+                if(contact[prop].toLowerCase().indexOf(filterText) > -1) {
                     match = true;
                     break;
                 }
