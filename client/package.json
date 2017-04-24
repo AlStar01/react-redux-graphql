@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "faker": "^4.1.0",
     "immutability-helper": "^2.1.2",
     "react": "^15.5.4",
     "react-bootstrap": "^0.30.10",

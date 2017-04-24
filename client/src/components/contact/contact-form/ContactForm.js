@@ -4,10 +4,18 @@ import PropTypes from 'prop-types';
 
 import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 
-const ContactForm = ({ contact, handleChange, handleSubmit }) => {
+const ContactForm = ({ contact, handleChange, handleSubmit, handleGenerateButtonClick }) => {
     return (
         <form onSubmit={handleSubmit}>
             <h1>Manage Contact</h1>
+
+            <br />
+
+            <Button bsStyle="warning" type="button" onClick={handleGenerateButtonClick}>Generate Contact</Button>
+
+            <br />
+            <br />
+
             <FormGroup controlId="name">
                 <ControlLabel>Name</ControlLabel>
                 <FormControl 
@@ -184,7 +192,8 @@ const ContactForm = ({ contact, handleChange, handleSubmit }) => {
 ContactForm.propTypes = {
     contact: PropTypes.object.isRequired,
     handleChange: PropTypes.func.isRequired,
-    handleSubmit: PropTypes.func.isRequired
+    handleSubmit: PropTypes.func.isRequired,
+    handleGenerateButtonClick: PropTypes.func.isRequired
 };
 
 export default ContactForm;

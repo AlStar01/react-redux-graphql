@@ -7,6 +7,8 @@ import * as contactActions from '../../../actions/contact/contact-actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import faker from 'faker';
+
 import ContactForm from '../contact-form/ContactForm';
 
 class ContactManagePage extends Component {
@@ -19,6 +21,7 @@ class ContactManagePage extends Component {
 
         this.onFormInputChange = this.onFormInputChange.bind(this);
         this.onFormSubmit = this.onFormSubmit.bind(this);
+        this.onGenerateButtonClick = this.onGenerateButtonClick.bind(this);
     }
 
     onFormInputChange(e) {
@@ -35,13 +38,37 @@ class ContactManagePage extends Component {
         this.props.actions.saveContact(this.state.contact);
     }
 
+    onGenerateButtonClick() {
+        const fakerContact = faker.helpers.contextualCard();
+        
+        const newContact = {
+            name: `${faker.name.firstName()} ${faker.name.lastName()}`,
+            email: fakerContact.email,
+            phone: fakerContact.phone,
+            street: faker.address.streetAddress(),
+            city: faker.address.city(),
+            state: faker.address.stateAbbr(),
+            zip: faker.address.zipCode(),
+            website: fakerContact.website,
+            company: fakerContact.company.name,
+            title: faker.name.jobTitle(),
+            avatar: fakerContact.avatar,
+            birthday: faker.date.between('1950-01-01', '2000-01-01').
+        };
+        
+        this.setState({
+            contact: Object.assign({}, newContact)
+        })
+    }
+
     render() {
         return (
             <div>
                 <ContactForm 
                     contact={this.state.contact}
                     handleChange={this.onFormInputChange}
-                    handleSubmit={this.onFormSubmit} />
+                    handleSubmit={this.onFormSubmit}
+                    handleGenerateButtonClick={this.onGenerateButtonClick} />
             </div>
         );
     }
