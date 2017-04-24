@@ -2,11 +2,15 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import { Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import { Form, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
 
-const ContactFilter = ({ filterText, onFilterTextInput }) => {
+const ContactFilter = ({ filterText, onFilterTextInput, onClearButtonClick }) => {
     const handleFilterTextChange = (e) => {
         onFilterTextInput(e.target.value);
+    };
+
+    const handleClearButtonClick = (e) => {
+        onClearButtonClick();
     };
     
     return (
@@ -16,13 +20,16 @@ const ContactFilter = ({ filterText, onFilterTextInput }) => {
                 {' '}
                 <FormControl type="text" placeholder="Search..." value={filterText} onChange={handleFilterTextChange} />
             </FormGroup>
+            {' '}
+            <Button bsStyle="default" type="button" onClick={handleClearButtonClick}>Clear</Button>
         </Form>
     );
 };
 
 ContactFilter.propTypes = {
     filterText: PropTypes.string.isRequired,
-    onFilterTextInput: PropTypes.func.isRequired
+    onFilterTextInput: PropTypes.func.isRequired,
+    onClearButtonClick: PropTypes.func.isRequired
 };
 
 export default ContactFilter;

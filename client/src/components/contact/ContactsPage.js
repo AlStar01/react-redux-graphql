@@ -18,25 +18,25 @@ class ContactsPage extends Component {
 
         this.state = {
             filterText: '',
-            contacts: props.contacts,
             filteredContacts: props.contacts
         };
 
         this.onFilterTextInput = this.onFilterTextInput.bind(this);
+        this.onClearButtonClick = this.onClearButtonClick.bind(this);
+
         this.goToAddContactPage = this.goToAddContactPage.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
         this.setState({ 
-            filteredContacts: Object.assign([], nextProps.contacts),
-            contacts: Object.assign([], nextProps.contacts)
+            filteredContacts: Object.assign([], nextProps.contacts)
         });
     }
 
     onFilterTextInput(filterText) {
         const props = ['name', 'email', 'phone', 'company', 'title'];
         
-        const filteredContacts = this.state.contacts.filter(contact => {
+        const filteredContacts = this.props.contacts.filter(contact => {
             let match = false;
 
             for(let prop of props) {
@@ -52,6 +52,13 @@ class ContactsPage extends Component {
         this.setState({
             filterText: filterText,
             filteredContacts: filteredContacts
+        });
+    }
+
+    onClearButtonClick() {
+        this.setState({ 
+            filterText: '',
+            filteredContacts: this.props.contacts
         });
     }
 
@@ -77,7 +84,10 @@ class ContactsPage extends Component {
 
                 <Row>
                     <Col sm={12}>
-                        <ContactFilter filterText={this.state.filterText} onFilterTextInput={this.onFilterTextInput} />
+                        <ContactFilter 
+                            filterText={this.state.filterText} 
+                            onFilterTextInput={this.onFilterTextInput}
+                            onClearButtonClick={this.onClearButtonClick} />
                         <br/>
                         <ContactList contacts={this.state.filteredContacts} />
                     </Col>
