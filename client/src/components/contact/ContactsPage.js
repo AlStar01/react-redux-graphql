@@ -28,9 +28,11 @@ class ContactsPage extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        this.setState({ 
-            filteredContacts: Object.assign([], nextProps.contacts)
-        });
+        if(this.props.contacts.length !== nextProps.contacts.length) {
+            this.setState({ 
+                filteredContacts: Object.assign([], nextProps.contacts)
+            });
+        }
     }
 
     onFilterTextInput(e) {
