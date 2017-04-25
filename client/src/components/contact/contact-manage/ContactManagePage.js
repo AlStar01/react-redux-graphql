@@ -84,8 +84,18 @@ ContactManagePage.contextTypes = {
     router: PropTypes.object
 };
 
+function getContactById(contacts, contactId) {
+    const contact = contacts.filter(contact => contact.id == contactId);
+    if(contact) return contact[0];
+    return null;
+}
+
 function mapStateToProps(state, ownProps) {
     console.debug(ownProps);
+    debugger;
+
+
+    const contactId = ownProps.params.id;
 
     let contact = {
         id: undefined, 
@@ -102,6 +112,10 @@ function mapStateToProps(state, ownProps) {
         avatar: '',
         birthday: ''
     };
+
+    if(contactId && state.contacts.length) {
+        contact = getContactById(state.contacts, contactId);
+    }
 
     return {
         contact: contact
