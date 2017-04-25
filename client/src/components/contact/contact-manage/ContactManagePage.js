@@ -24,6 +24,12 @@ class ContactManagePage extends Component {
         this.onGenerateButtonClick = this.onGenerateButtonClick.bind(this);
     }
 
+    componentWillReceiveProps(nextProps) {
+        if(this.props.contact.id !== nextProps.contact.id) {
+            this.setState({ contact: Object.assign({}, nextProps.contact) });
+        }
+    }
+
     onFormInputChange(e) {
         let contact = this.state.contact;
         
