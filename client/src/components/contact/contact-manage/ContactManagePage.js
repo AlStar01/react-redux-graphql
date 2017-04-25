@@ -91,16 +91,12 @@ ContactManagePage.contextTypes = {
 };
 
 function getContactById(contacts, contactId) {
-    const contact = contacts.filter(contact => contact.id == contactId);
+    const contact = contacts.filter(contact => contact.id === +contactId);
     if(contact) return contact[0];
     return null;
 }
 
 function mapStateToProps(state, ownProps) {
-    console.debug(ownProps);
-    debugger;
-
-
     const contactId = ownProps.params.id;
 
     let contact = {

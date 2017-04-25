@@ -6,6 +6,8 @@ class ContactsService {
 
         this.getContacts = this.getContacts.bind(this);
         this.getContact = this.getContact.bind(this);
+        this.addContact = this.addContact.bind(this);
+        this.updateContact = this.updateContact.bind(this);
     }
 
     getContacts() {
@@ -17,12 +19,22 @@ class ContactsService {
     }
 
     addContact(contact) {
-        
         return this.db
-            .returning(['id']).insert(contact).into('contact')
+            .returning(['id'])
+                .insert(contact)
+                .into('contact')
                 .then((contactId) => {
                     return this.db.select().from('contact').where('id', contactId[0]).first();
                 });
+    }
+
+    updateContact(contact) {
+        return this.db('contact')
+            .where('id', contact.id)
+            .update(Object.assign({}, contact, { id: undefined } ))
+            .then(() => {
+                return this.db.select().from('contact').where('id', contact.id).first();
+            });
     }
 }
 

@@ -28,11 +28,9 @@ class ContactsPage extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if(this.props.contacts.length !== nextProps.contacts.length) {
-            this.setState({ 
-                filteredContacts: Object.assign([], nextProps.contacts)
-            });
-        }
+        this.setState({ 
+            filteredContacts: Object.assign([], nextProps.contacts)
+        });
     }
 
     onFilterTextInput(e) {
@@ -107,10 +105,11 @@ ContactsPage.propTypes = {
 }
 
 function mapStateToProps(state, ownProps) {
-    console.debug(ownProps);
+    const sortedContacts = [...state.contacts]
+        .sort((a, b) => a.name.toUpperCase().localeCompare(b.name.toUpperCase()));
 
     return {
-        contacts: state.contacts
+        contacts: sortedContacts
     }
 }
 

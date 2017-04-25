@@ -17,6 +17,12 @@ router.get('/:contactId', (req, res) => {
 
 router.post('/', (req, res) => {
     contactService.addContact(req.body)
+        .then(contact => res.status(201).send(contact))
+        .catch(error => res.status(500).send(error));
+});
+
+router.patch('/:contactId', (req, res) => {
+    contactService.updateContact(req.body)
         .then(contact => res.status(200).send(contact))
         .catch(error => res.status(500).send(error));
 });
