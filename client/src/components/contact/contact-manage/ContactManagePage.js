@@ -36,6 +36,7 @@ class ContactManagePage extends Component {
     onFormSubmit(e) {
         e.preventDefault();
         this.props.actions.saveContact(this.state.contact);
+        this.context.router.push('/contacts');
     }
 
     onGenerateButtonClick() {
@@ -77,6 +78,10 @@ class ContactManagePage extends Component {
 ContactManagePage.propTypes = {
     actions: PropTypes.object.isRequired,
     contact: PropTypes.object.isRequired
+};
+
+ContactManagePage.contextTypes = {
+    router: PropTypes.object
 };
 
 function mapStateToProps(state, ownProps) {
