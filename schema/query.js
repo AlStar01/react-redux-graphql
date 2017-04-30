@@ -1,13 +1,14 @@
 let { GraphQLObjectType, GraphQLString, GraphQLList } = require('graphql');
 
 let contactType = require('./types');
+let resolveContacts = require('./resolvers');
 
 const query = new GraphQLObjectType({
     name: 'RootQueryType',
     fields: {
-        hello: {
-            type: GraphQLString,
-            resolve: () => 'Hello World!'
+        contacts: {
+            type: new GraphQLList(contactType),
+            resolve: resolveContacts
         }
     }
 });

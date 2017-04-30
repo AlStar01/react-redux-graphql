@@ -14,23 +14,7 @@ let api = require('./api/api');
 
 // GraphQL
 let graphqlHTTP = require('express-graphql');
-// let { buildSchema } = require('graphql');
-
 let Schema = require('./schema');
-
-// Construct a schema, using GraphQL schema language
-// let schema = buildSchema(`
-//   type Query {
-//     hello: String
-//   }
-// `);
-
-// The root provides a resolver function for each API endpoint
-// let root = {
-//   hello: () => {
-//     return 'Hello world!';
-//   },
-// };
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -46,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 app.use(api);
 
+// GraphQL
 app.use('/graphql', graphqlHTTP({
   schema: Schema,
   graphiql: true,

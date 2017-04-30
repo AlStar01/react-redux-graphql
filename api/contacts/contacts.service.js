@@ -1,4 +1,4 @@
-let db = require('../../db/db');
+let db = require('../../db');
 
 class ContactsService {
     constructor() {
