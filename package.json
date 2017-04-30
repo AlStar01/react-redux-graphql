@@ -3,13 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "concurrently \"node ./bin/www\" \"cd client && npm start\""
+    "start": "concurrently \"nodemon ./bin/www\" \"cd client && npm start\""
   },
   "dependencies": {
     "body-parser": "~1.16.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.0",
     "express": "~4.14.1",
+    "express-graphql": "^0.6.4",
     "jade": "~1.11.0",
     "knex": "^0.12.9",
     "morgan": "~1.7.0",
@@ -20,6 +21,7 @@
   "devDependencies": {
     "concurrently": "^3.4.0",
     "faker": "^4.1.0",
+    "nodemon": "^1.11.0",
     "react-scripts": "^0.9.5"
   }
 }

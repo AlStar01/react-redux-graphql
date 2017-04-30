@@ -12,6 +12,9 @@ let app = express();
 
 let api = require('./api/api');
 
+var graphqlHTTP = require('express-graphql');
+var { buildSchema } = require('graphql');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
