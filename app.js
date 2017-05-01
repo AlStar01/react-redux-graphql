@@ -5,16 +5,12 @@ let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 
-let index = require('./routes/index');
-let users = require('./routes/users');
+let graphqlHTTP = require('express-graphql');
+let Schema = require('./schema');
 
 let app = express();
 
 let api = require('./api/api');
-
-// GraphQL
-let graphqlHTTP = require('express-graphql');
-let Schema = require('./schema');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,7 +29,7 @@ app.use(api);
 // GraphQL
 app.use('/graphql', graphqlHTTP({
   schema: Schema,
-  graphiql: true,
+  graphiql: true
 }));
 
 app.use('*', (req, res) => res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')));

@@ -8,4 +8,8 @@ function resolveContacts(rootValue, { name }) {
     return db.select().from('contact');
 }
 
-module.exports = resolveContacts;
+function resolveAddContact(rootValue, { contact }) {
+
+}
+
+module.exports = { resolveContacts, resolveAddContact };

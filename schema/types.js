@@ -2,8 +2,7 @@ let {
   GraphQLObjectType,
   GraphQLNonNull,
   GraphQLString,
-  GraphQLInt,
-  GraphQLList
+  GraphQLInt
 } = require('graphql');
 
 const contactType = new GraphQLObjectType({
