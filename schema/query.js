@@ -8,6 +8,12 @@ const query = new GraphQLObjectType({
     fields: {
         contacts: {
             type: new GraphQLList(contactType),
+            args: {
+                name: {
+                    name: 'name',
+                    type: GraphQLString
+                }
+            },
             resolve: resolveContacts
         }
     }
