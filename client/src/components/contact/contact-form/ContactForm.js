@@ -11,10 +11,14 @@ const ContactForm = ({ contact, handleChange, handleSubmit, handleGenerateButton
 
             <br />
 
-            <Button bsStyle="warning" type="button" onClick={handleGenerateButtonClick}>Generate Contact</Button>
-
-            <br />
-            <br />
+            {contact.id &&
+                <div>
+                    <Button bsStyle="warning" type="button" onClick={handleGenerateButtonClick}>Generate Contact</Button>
+                    
+                    <br />
+                    <br />
+                </div>
+            }
 
             <FormGroup controlId="name">
                 <ControlLabel>Name</ControlLabel>

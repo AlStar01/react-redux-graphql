@@ -1,19 +1,18 @@
-let { GraphQLObjectType, GraphQLString } = require('graphql');
-let { contactType } = require('./types');
+let { GraphQLObjectType } = require('graphql');
+let { contactType, contactInputType } = require('./types');
 
-let { resolveAddContact } = require('./resolvers');
+let contactResolvers = require('./resolvers');
 
 const contactMutation = new GraphQLObjectType({
-    new: 'RootMutationType',
+    name: 'RootMutationType',
     fields: {
         addContact: {
             type: contactType,
+            description: 'Add new contact',
             args: {
-                contact: {
-                    type: contactType
-                }
-            },
-            resolve: resolveAddContact
+                contact: { type: contactInputType }
+            }, 
+            resolve: contactResolvers.resolveAddContact
         }
     }
 });

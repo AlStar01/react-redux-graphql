@@ -9,7 +9,7 @@ function resolveContacts(rootValue, { name }) {
 }
 
 function resolveAddContact(rootValue, { contact }) {
-
+    return Promise.resolve(true);
 }
 
 module.exports = { resolveContacts, resolveAddContact };

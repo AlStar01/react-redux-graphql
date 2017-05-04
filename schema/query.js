@@ -4,7 +4,7 @@ let {
     GraphQLList,
     GraphQLID
 } = require('graphql');
-let contactType = require('./types');
+let { contactType } = require('./types');
 let { resolveContacts } = require('./resolvers');
 
 const query = new GraphQLObjectType({
