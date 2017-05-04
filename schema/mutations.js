@@ -13,6 +13,14 @@ const contactMutation = new GraphQLObjectType({
                 contact: { type: contactInputType }
             }, 
             resolve: contactResolvers.resolveAddContact
+        },
+        updateContact: {
+            type: contactType,
+            description: 'Update existing contact',
+            args: {
+                contact: { type: contactInputType }
+            },
+            resolve: contactResolvers.updateContact
         }
     }
 });

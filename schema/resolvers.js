@@ -12,4 +12,8 @@ function resolveAddContact(rootValue, { contact }) {
     return Promise.resolve(true);
 }
 
+function resolveUpdateContact(rootValue, { contact }) {
+    return Promise.resolve(true);
+}
+
 module.exports = { resolveContacts, resolveAddContact };
