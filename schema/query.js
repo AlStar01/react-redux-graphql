@@ -17,7 +17,8 @@ const query = new GraphQLObjectType({
                     type: GraphQLID
                 },
                 name: {
-                    type: GraphQLString
+                    type: GraphQLString,
+                    defaultValue: ''
                 }
             },
             resolve: resolveContacts

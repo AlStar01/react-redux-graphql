@@ -5,7 +5,7 @@ let contactResolvers = require('./resolvers');
 
 const contactMutation = new GraphQLObjectType({
     name: 'RootMutationType',
-    fields: {
+    fields: () => ({
         addContact: {
             type: contactType,
             description: 'Add new contact',
@@ -22,7 +22,7 @@ const contactMutation = new GraphQLObjectType({
             },
             resolve: contactResolvers.updateContact
         }
-    }
+    })
 });
 
 module.exports = contactMutation;

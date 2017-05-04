@@ -1,19 +1,18 @@
-let db = require('../db');
+let contactService = require('../api/contacts/contacts.service');
 
 function resolveContacts(rootValue, { name }) {
     if(name) {
-        return db.select().from('contact').where('name', 'like', `%${name}%`);
+        return contactService.getContactsByName(name);
     }
-
-    return db.select().from('contact');
+    return contactService.getContacts();
 }
 
 function resolveAddContact(rootValue, { contact }) {
-    return Promise.resolve(true);
+    return contactService.addContact(contact);
 }
 
 function resolveUpdateContact(rootValue, { contact }) {
-    return Promise.resolve(true);
+    return contactService.updateContact(contact);
 }
 
 module.exports = { resolveContacts, resolveAddContact };

@@ -18,6 +18,10 @@ class ContactsService {
         return this.db.select().from('contact').where('id', contactId).first();
     }
 
+    getContactsByName(contactName) {
+        return this.db.select().from('contact').where('name', 'like', `%${contactName}%`);
+    }
+
     addContact(contact) {
         return this.db
             .returning(['id'])

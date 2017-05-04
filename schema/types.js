@@ -76,10 +76,6 @@ const contactType = new GraphQLObjectType({
 const contactInputType = new GraphQLInputObjectType({
   name: 'ContactInput',
   fields: () => ({
-    id: {
-      type: new GraphQLNonNull(GraphQLInt),
-      description: 'a business contact\'s id',
-    },
     name: {
       type: new GraphQLNonNull(GraphQLString),
       description: 'a business contact\'s name',
@@ -127,15 +123,7 @@ const contactInputType = new GraphQLInputObjectType({
     birthday: {
       type: new GraphQLNonNull(GraphQLString),
       description: 'a business contact\'s birthday',
-    },  
-    created_on: {
-      type: new GraphQLNonNull(GraphQLString),
-      description: 'Date business contact was created on',
-    },  
-    modified_on: {
-      type: new GraphQLNonNull(GraphQLString),
-      description: 'Date business contact was modified on',
-    } 
+    }
   })
 });
 
